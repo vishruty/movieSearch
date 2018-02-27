@@ -28,20 +28,22 @@ let runSearch=function(keyword){
 let innerCode=function createData(data){
 	var len=data.results.length;
 	var movieObj="";
-	for(var i=0;i<len;i++){
-		movieObj+="<p class='nested_para'>";
-		movieObj+="Title:" + data.results[i].title + "<br>";
-		movieObj+= "Release date: " + data.results[i].release_date + "<br>";
-		movieObj+= "Rating: " + data.results[i].vote_average + "<br>";
-		if(data.results[i].overview.length!=0){
-			movieObj+= "Overview: " + data.results[i].overview + "<br>";
-		}
-		movieObj+= "<form>";
-		movieObj+="<input type='checkbox' name='vehicle' value='" + data.results[i].id + "'><br>";
-		movieObj+= "</form>"
-		movieObj+="</p>";
-		movieObj+= "<hr>";
+	 for(var i=0;i<len;i++){
+	        movieObj+="<p class='nested_para'>";
+	        movieObj+="Title:" + data.results[i].title + "<br>";
+	        movieObj+= "Release date: " + data.results[i].release_date + "<br>";
+	        movieObj+= "Rating: " + data.results[i].vote_average + "<br>";
+	        if(data.results[i].overview.length!=0){
+	            movieObj+= "Overview: " + data.results[i].overview + "<br>";
+	        }
+	    //    movieObj+= "<form>";
+	        movieObj+="<input type='checkbox' name='movies_to_watch' value='" + data.results[i].title + "'><br>";
+	    //    movieObj+= "</form>"
+	        movieObj+="</p>";
+	        movieObj+= "<hr>";
+	    }
+	    movieObj+="<input type='submit' value='click here to add these movies'>";
+	    return movieObj;
 	}
-	return movieObj;
-}
+
 
